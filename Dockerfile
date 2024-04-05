@@ -245,7 +245,7 @@ RUN python3 -m venv --system-site-packages venv && \
     pip3 install --no-cache-dir xformers==0.0.22 && \
     pip3 install bitsandbytes \
         tensorboard==2.14.1 tensorflow==2.14.0 \
-        wheel packaging tensorrt && \
+        #wheel packaging tensorrt && \
     pip3 install tensorflow[and-cuda] && \
     pip3 install -r requirements.txt && \
     pip3 cache purge && \
