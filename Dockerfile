@@ -241,11 +241,14 @@ WORKDIR /kohya_ss
 COPY kohya_ss/requirements* ./
 RUN python3 -m venv --system-site-packages venv && \
     source venv/bin/activate && \
-    pip install --no-cache-dir torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
-    pip install --no-cache-dir xformers==0.0.22 \
-    #pip install -r requirements.txt && \
-    pip install . && \
-    pip cache purge && \
+    pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
+    pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL} && \
+    pip3 install bitsandbytes==0.43.0 \
+        tensorboard==2.14.1 tensorflow==2.14.0 \
+        wheel packaging tensorrt && \
+    pip3 install tensorflow[and-cuda] && \
+    pip3 install -r requirements.txt && \
+    pip3 cache purge && \
     deactivate
 
 
