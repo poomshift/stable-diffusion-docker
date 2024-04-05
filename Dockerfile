@@ -243,7 +243,7 @@ RUN python3 -m venv --system-site-packages venv && \
     source venv/bin/activate && \
     pip install --no-cache-dir torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
     pip install --no-cache-dir xformers==0.0.22 \
-    pip install -r requirements.txt && \
+    #pip install -r requirements.txt && \
     pip install . && \
     pip cache purge && \
     deactivate
