@@ -66,7 +66,7 @@ ARG INDEX_URL
 ARG TORCH_VERSION
 ARG XFORMERS_VERSION
 RUN pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
-    pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL} &&  \
+    pip3 install --no-cache-dir xformers --index-url ${INDEX_URL} &&  \
     pip3 install --no-cache-dir tensorrt
 
 # Stage 2: Install applications
