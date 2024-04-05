@@ -109,9 +109,9 @@ RUN source /venv/bin/activate && \
 # Cache the Stable Diffusion Models
 # SDXL models result in OOM kills with 8GB system memory, need 30GB+ to cache these
 #RUN source /venv/bin/activate && \
-    python3 cache-sd-model.py --no-half-vae --no-half --xformers --use-cpu=all --ckpt /sd-models/sd_xl_base_1.0.safetensors && \
-    python3 cache-sd-model.py --no-half-vae --no-half --xformers --use-cpu=all --ckpt /sd-models/sd_xl_refiner_1.0.safetensors && \
-    deactivate
+    #python3 cache-sd-model.py --no-half-vae --no-half --xformers --use-cpu=all --ckpt /sd-models/sd_xl_base_1.0.safetensors && \
+    #python3 cache-sd-model.py --no-half-vae --no-half --xformers --use-cpu=all --ckpt /sd-models/sd_xl_refiner_1.0.safetensors && \
+    #deactivate
     
 Run git clone https://huggingface.co/embed/negative embeddings/negative && \
     git clone https://huggingface.co/embed/lora models/Lora/positive
@@ -178,15 +178,15 @@ RUN source /venv/bin/activate && \
 #ARG DREAMBOOTH_COMMIT
 #WORKDIR /stable-diffusion-webui/extensions/sd_dreambooth_extension
 #RUN git checkout main && \
-    git reset ${DREAMBOOTH_COMMIT} --hard
+    #git reset ${DREAMBOOTH_COMMIT} --hard
 
 # Install the dependencies for the Dreambooth extension
 #WORKDIR /stable-diffusion-webui
 #RUN source /venv/bin/activate && \
-    cd /stable-diffusion-webui/extensions/sd_dreambooth_extension && \
-    pip3 install -r requirements.txt && \
-    pip3 cache purge && \
-    deactivate
+    #cd /stable-diffusion-webui/extensions/sd_dreambooth_extension && \
+    #pip3 install -r requirements.txt && \
+    #pip3 cache purge && \
+    #deactivate
 
 # Add inswapper model for the ReActor extension
 RUN mkdir -p /stable-diffusion-webui/models/insightface && \
