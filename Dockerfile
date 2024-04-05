@@ -243,8 +243,8 @@ RUN git checkout v22.1.0 && \
         tensorboard==2.14.1 \
         tensorflow==2.14.0 \
         wheel \
-        scipy \
-        tensorrt && \
+        scipy && \
+        #tensorrt && \
     pip3 install -r requirements.txt && \
     pip3 install . && \
     pip3 cache purge && \
