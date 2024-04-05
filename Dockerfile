@@ -245,7 +245,7 @@ RUN git checkout v22.1.0 && \
         wheel \
         scipy && \
         #tensorrt && \
-    pip3 install -r requirements.txt && \
+    pip install -r requirements.txt && \
     pip3 install . && \
     pip3 cache purge && \
     deactivate
