@@ -3,7 +3,7 @@ variable "USERNAME" {
 }
 
 variable "APP" {
-    default = "stable-diffusion-webui"
+    default = "sd_runpod"
 }
 
 variable "RELEASE" {
