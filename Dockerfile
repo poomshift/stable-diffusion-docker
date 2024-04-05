@@ -66,8 +66,8 @@ ARG INDEX_URL
 ARG TORCH_VERSION
 ARG XFORMERS_VERSION
 RUN pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
-    pip3 install --no-cache-dir xformers --index-url ${INDEX_URL} &&  \
-    pip3 install --no-cache-dir tensorrt
+    pip3 install --no-cache-dir xformers &&  \
+    #pip3 install --no-cache-dir tensorrt
 
 # Stage 2: Install applications
 FROM base as setup
@@ -96,7 +96,7 @@ RUN python3 -m venv --system-site-packages /venv && \
     source /venv/bin/activate && \
     pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
     pip3 install --no-cache-dir xformers && \
-    pip3 install tensorflow[and-cuda] && \
+    #pip3 install tensorflow[and-cuda] && \
     deactivate
 
 # Install the dependencies for the Automatic1111 Stable Diffusion Web UI
