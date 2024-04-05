@@ -95,7 +95,7 @@ WORKDIR /stable-diffusion-webui
 RUN python3 -m venv --system-site-packages /venv && \
     source /venv/bin/activate && \
     pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
-    pip3 install --no-cache-dir xformers --index-url ${INDEX_URL} &&  \
+    pip3 install --no-cache-dir xformers && \
     pip3 install tensorflow[and-cuda] && \
     deactivate
 
