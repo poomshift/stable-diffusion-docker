@@ -231,22 +231,23 @@ RUN wget https://huggingface.co/ckpt/ControlNet-v1-1/resolve/main/control_v11p_s
 RUN echo "CUDA" > /stable-diffusion-webui/extensions/sd-webui-reactor/last_device.txt
 
 # Install Kohya_ss
-RUN git clone https://github.com/bmaltais/kohya_ss.git /kohya_ss
+ARG KOHYA_VERSION
+RUN git clone https://github.com/bmaltais/kohya_ss.git /kohya_ss && \
+    cd /kohya_ss && \
+    git checkout ${KOHYA_VERSION} && \
+    git submodule update --init --recursive
+
 WORKDIR /kohya_ss
 COPY kohya_ss/requirements* ./
-RUN git checkout v22.1.0 && \
-    python3 -m venv --system-site-packages venv && \
+RUN python3 -m venv --system-site-packages venv && \
     source venv/bin/activate && \
-    pip3 install --no-cache-dir torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
-    pip3 install --no-cache-dir xformers==0.0.22 \
-        bitsandbytes==0.41.1 \
-        tensorboard==2.14.1 \
-        tensorflow==2.14.0 \
-        wheel \
-        scipy && \
-        #tensorrt && \
-    pip install -r requirements.txt && \
-    pip3 install . && \
+    pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
+    pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL} && \
+    pip3 install bitsandbytes==0.43.0 \
+        tensorboard==2.14.1 tensorflow==2.14.0 \
+        wheel packaging tensorrt && \
+    pip3 install tensorflow[and-cuda] && \
+    pip3 install -r requirements.txt && \
     pip3 cache purge && \
     deactivate
 
