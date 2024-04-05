@@ -242,7 +242,7 @@ COPY kohya_ss/requirements* ./
 RUN python3 -m venv --system-site-packages venv && \
     source venv/bin/activate && \
     pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
-    pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL} && \
+    pip3 install --no-cache-dir xformers==0.0.22 && \
     pip3 install bitsandbytes==0.43.0 \
         tensorboard==2.14.1 tensorflow==2.14.0 \
         wheel packaging tensorrt && \
@@ -257,7 +257,7 @@ WORKDIR /ComfyUI
 RUN python3 -m venv --system-site-packages venv && \
     source venv/bin/activate && \
     pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio --index-url ${INDEX_URL} && \
-    pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL} &&  \
+    pip3 install --no-cache-dir xformers==0.0.22 && \
     pip3 install -r requirements.txt && \
     deactivate
 
