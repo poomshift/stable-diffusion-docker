@@ -248,7 +248,6 @@ RUN python3 -m venv --system-site-packages venv && \
         tensorflow==2.14.0 \
         wheel \
         scipy \
-        tensorrt && \
     pip3 install -r requirements.txt && \
     pip3 install . && \
     pip3 cache purge && \
