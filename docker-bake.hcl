@@ -20,7 +20,7 @@ target "default" {
     args = {
         RELEASE = "${RELEASE}"
         INDEX_URL = "https://download.pytorch.org/whl/cu${CU_VERSION}"
-        TORCH_VERSION = "2.1.2+cu${CU_VERSION}"
+        TORCH_VERSION = "2.0.1+cu${CU_VERSION}"
         XFORMERS_VERSION = "0.0.23.post1+cu${CU_VERSION}"
         WEBUI_VERSION = "v1.8.0"
         CONTROLNET_COMMIT = "eb451a007f7040288e865f96e9ee0842aa6ef91c"
