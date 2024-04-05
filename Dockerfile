@@ -248,7 +248,7 @@ RUN python3 -m venv --system-site-packages venv && \
         tensorflow==2.14.0 \
         wheel \
         scipy && \
-    pip install -r requirements.txt && \
+    #pip install -r requirements.txt && \
     pip install . && \
     pip cache purge && \
     deactivate
