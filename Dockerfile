@@ -154,7 +154,7 @@ RUN source /venv/bin/activate && \
     pip3 install -r requirements.txt && \
     cd /stable-diffusion-webui/extensions/sd-webui-reactor && \
     pip3 install -r requirements.txt && \
-    pip3 install onnxruntime-gpu && \
+    pip3 install onnxruntime-gpu=1.17.1 && \
     cd /stable-diffusion-webui/extensions/infinite-image-browsing && \
     pip3 install -r requirements.txt && \
     cd /stable-diffusion-webui/extensions/adetailer && \
